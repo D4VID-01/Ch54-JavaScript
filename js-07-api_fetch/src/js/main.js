@@ -60,6 +60,8 @@ Características clave de los módulos JS:
     return a + b;
   }
 
+  export {PI, sumar}; //Exportación nombrada
+
   También puedes exportar por defecto (solo uno por módulo):
   export default function saludar(nombre) {
     return `¡Hola, ${nombre}!`;
@@ -78,6 +80,12 @@ Características clave de los módulos JS:
 
 
 // importa las funciones del footer y header e invócalos para que se ejecuten
+
+import { insertMainHeader } from "../modules/header/header.js";
+import { insertMainFooter } from "../modules/footer/footer.js";
+
+insertMainHeader(document.getElementById("header"));
+insertMainFooter(document.getElementById("footer"));
 
 
 
@@ -100,6 +108,52 @@ Características clave de los módulos JS:
 
 */
 
+/* Crea en el HTML un input y un boton para guardar el valor en el localStorage.
+
+  Al cargar la página, si hay un valor guardado, mostrarlo en el titulo H1 "Hola, {nombre}".
+  En caso contrario, mostrar "Hola, persona invitada".
+
+*/
+
+const leerNombreLocalStorage =() => {
+  const nombre = localStorage.getItem('nombre')||'Persona invitada';
+  return nombre;
+}
+
+const insertarNombreDOM = () => {
+  const refH2 = document.querySelector('#bienvenida');
+  const nombre = leerNombreLocalStorage();
+  refH2.textContent = `Hola ${nombre}`;
+}
+
+insertarNombreDOM();
+
+const manejoDelBtnGuardar = () => {
+  const refInput = document.querySelector('#nombreInput');
+  const newName = refInput.value;
+  newName && localStorage.setItem('nombre', newName);
+}
+
+// NO lo debemos hacer
+// window.aLlamadaBotonGuardar = manejoDelBotonGuardar;
+
+/**
+ *  ¿Qué es addEventListener?
+ *  Es un método que permite escuchar eventos (como click, keydown, submit, etc.) en un elemento 
+ *  del DOM, y ejecutar una función cuando ese evento ocurre.
+ * 
+ * */
+
+const refSaveButton = document.getElementById('btnGuardar');
+refSaveButton.addEventListener('click', manejoDelBtnGuardar);
+
+
+/*
+  Cuando usas un script como módulo (<script type="module">), 
+  las funciones no se exponen automáticamente al ámbito global, 
+  por lo tanto no puedes llamarlas directamente desde el HTML 
+  con onclick="manejoDelBotonGuardar()"
+*/
 
 
 
