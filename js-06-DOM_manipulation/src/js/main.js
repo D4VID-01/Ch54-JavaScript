@@ -41,6 +41,26 @@ const changeElementById = () =>{
 
 changeElementById();
 
+
+const cambiaElemntos = ( name ) => {
+    const descripcionOperadores = document.getElementById("david-dom");
+    console.log(descripcionOperadores);
+    descripcionOperadores.innerHTML = 
+        `<div class="card" style="width: 18rem;">
+        <img src = "./public/images/dino.jpg" class="card-img-top" alt="Dinosaurio rex escribiendo código" >
+            <div class="card-body">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+</div > `;
+}
+
+cambiaElemntos("Luis David");
+
+
+
+
 /**
  * Modificar elementos por su tag(etiqueta HTML)
  */
@@ -53,6 +73,16 @@ const changeElementsByTagName =  () => {
    }
 
 }
+
+//Realizar una función que lea todos los botones de la página 
+// y muestre en consola el número de botones
+
+const leerBotones = (tag) => {
+    const numBotones = document.getElementsByTagName(tag).length;
+    return numBotones;
+}
+
+console.log(`Número de botones en la página: ${leerBotones('button')}`);
 
 // changeElementsByTagName();
 

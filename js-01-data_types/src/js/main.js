@@ -48,6 +48,20 @@ console.log("El resultado de " + valor1 + " * " + valor2 + " = " + valor1 * valo
 console.log(`El resultado de ${valor1} * ${valor2} = ${valor1*valor2} pesos.`);
 
 /*
+ Crear una variable con el nombre de la persona que cumple años.
+ Crear una variable con el regalo que le darás.
+ Mostrar en consola el mensaje que incluya el nombre de las persona y el regalo.
+ */
+
+const felicitacion = (persona, regalo) =>{
+
+  console.log(`Feliz cumpleaños ${persona}, tu regalo es una ${regalo}`);
+}
+
+felicitacion('David', 'cartera');
+
+
+/*
  Tipos de datos number.
 
  - números positivos: 100, 1, 0.258
@@ -67,6 +81,26 @@ console.log( typeof +Infinity ); // 'number'
 console.log( typeof ( 3 + "Viernes temático" ) ); // 'string'
 console.log( typeof ( "3Viernes temático" ) ); // 'string'
 console.log( 4 / 0 ); // +Infinity
+
+
+/* Comprueba si las siguientes variables son del tipo number*/
+/* Comprueba si las siguientes variables son del tipo string*/
+
+const nameCh54 = "Luis"
+const num1 = 42;
+
+const compruebaNumero = dato => {
+  if (typeof dato === "number") {
+    console.log(`${dato} es un dato tipo number` );
+  } else if (typeof dato === "string") {
+    console.log(`${dato} es un dato tipo string` );
+  } else {
+    console.log(`${dato} no es un dato number ni string` );
+  }
+}
+
+compruebaNumero(num1);
+compruebaNumero(nameCh54);
 
 
 /*
